@@ -1,9 +1,5 @@
-import React from 'react';
+import Home from '@/app/(afterLogin)/home/page';
 
-export default function Tweet() {
-    return (
-        <div>
-            
-        </div>
-    );
+export default function Page() {
+  return <Home />;
 }
