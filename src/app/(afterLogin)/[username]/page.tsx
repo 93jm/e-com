@@ -1,14 +1,12 @@
 import style from './profile.module.css';
 import Post from '@/app/(afterLogin)/_component/Post';
 import BackButton from '@/app/(afterLogin)/_component/BackButton';
-import ECOM from '/public/images/ecom.png';
-import Image from 'next/image';
 
 export default function Profile() {
   const user = {
     id: 'evan',
     nickname: '에반',
-    image: ECOM,
+    image: '/ecom.png',
   };
 
   return (
@@ -19,7 +17,7 @@ export default function Profile() {
       </div>
       <div className={style.userZone}>
         <div className={style.userImage}>
-          <Image src={user.image} alt={user.id} height={134} />
+          <img src={user.image} alt={user.id} />
         </div>
         <div className={style.userName}>
           <div>{user.nickname}</div>

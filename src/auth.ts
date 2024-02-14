@@ -15,6 +15,7 @@ export const {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        console.log('credentials >> ', credentials);
         //로그인 수행할때에 아래 부분 호출
         const authResponse = await fetch(`${process.env.AUTH_URL}/api/login`, {
           method: 'POST',
@@ -26,14 +27,19 @@ export const {
             password: credentials.password,
           }),
         });
-        console.log('auth_url >> ', process.env.AUTH_URL);
+
         if (!authResponse.ok) {
           return null;
         }
 
         const user = await authResponse.json();
-
-        return user;
+        console.log('user >> ', user);
+        return {
+          email: user.id,
+          name: user.nickname,
+          image: user.image,
+          ...user,
+        };
       },
     }),
     // KakaoProvider({...})

@@ -1,5 +1,14 @@
-export { auth as middleware } from './auth';
+import { auth } from './auth';
+import { NextResponse } from 'next/server';
 
+export async function middleware() {
+  //현재 세션이 있는지 검사
+  const session = await auth();
+  if (!session) {
+    //없다면 login 페이지로 리다이렉트
+    return NextResponse.redirect('http://localhost:3000/i/flow/login');
+  }
+}
 /**
  * App router에서는 기존 page router에서 작업하기 어려웠던 로그인 별 페이지 접근 권한에 있어
  * 간단하게 사용할 수 있게끔 middleware라는 것을 제공해준다, 다만 여기서는 middleware를

@@ -1,17 +1,17 @@
 import { http, HttpResponse } from 'msw';
-import ECOM from '/public/images/ecom.png';
 
 const User = [
   {
     userId: 1,
-    nickname: '에반',
+    nickname: 'evan' /** 에덴 << 으로 입력하면 cookie가 안쌓임 */,
     id: 'evan',
-    image: '/public/images/ecom.png',
+    image: '/ecom.png',
   },
 ];
 
 export const handlers = [
   http.post('/api/login', () => {
+    console.log('로그인 한다');
     return HttpResponse.json(User[0], {
       headers: {
         'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/',
@@ -26,10 +26,11 @@ export const handlers = [
     });
   }),
   http.post('/api/users', async ({ request }) => {
-    console.log('회원가입');
+    console.log('회원가입 한다');
+    // 유저 이미 존재하는 return 용
     // return HttpResponse.text(JSON.stringify('user_exists'), {
     //   status: 403,
-    // });
+    // })
     return HttpResponse.text(JSON.stringify('ok'), {
       headers: {
         'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/;Max-Age=0',

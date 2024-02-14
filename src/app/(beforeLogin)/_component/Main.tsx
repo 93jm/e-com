@@ -1,15 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import styles from './main.module.css';
 import Link from 'next/link';
-import ECOM from '/public/images/ecom.png';
 
 export default function Main() {
   return (
     <>
       <div className={styles.left}>
-        <Image src={ECOM} alt="logo" />
+        <img src="./ecom.png" alt="logo" />
       </div>
       <div className={styles.right}>
         <h1>지금 일어나고 있는 일</h1>

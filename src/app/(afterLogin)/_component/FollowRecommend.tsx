@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
 import style from './followRecommend.module.css';
-import FAKER_IMG from '/public/images/faker.png';
 
 export default function FollowRecommend() {
   const onFollow = () => {};
@@ -10,14 +8,14 @@ export default function FollowRecommend() {
   const user = {
     id: 'faker',
     nickname: 'Faker(이상혁)',
-    image: FAKER_IMG,
+    image: '/faker.png',
   };
 
   return (
     <div className={style.container}>
       <div className={style.userLogoSection}>
         <div className={style.userLogo}>
-          <Image src={user.image} alt={user.id} />
+          <img src={user.image} alt={user.id} />
         </div>
       </div>
       <div className={style.userInfo}>

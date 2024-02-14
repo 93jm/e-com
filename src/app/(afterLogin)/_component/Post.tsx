@@ -3,8 +3,6 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
-import FAKER_IMG from '/public/images/faker.png';
-import Image from 'next/image';
 import ActionButtons from './ActionButtons';
 import PostArticle from './PostArticle';
 import { faker } from '@faker-js/faker';
@@ -22,7 +20,7 @@ export default function Post({ noImage }: Props) {
     User: {
       id: 'faker',
       nickname: 'Faker(이상혁)',
-      image: FAKER_IMG,
+      image: '/faker.png',
     },
     content: '첫번째 우승은 저 자신을 위한 것이었다면, 두번째 우승은 저희 팀을 위한 것입니다',
     createdAt: new Date(),
@@ -43,7 +41,7 @@ export default function Post({ noImage }: Props) {
       <div className={style.postWrapper}>
         <div className={style.postUserSection}>
           <Link href={`/${target.User.id}`} className={style.postUserImage}>
-            <Image src={target.User.image} alt={target.User.nickname} />
+            <img src={target.User.image} alt={target.User.nickname} />
             <div className={style.postShade} />
           </Link>
         </div>

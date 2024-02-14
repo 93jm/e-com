@@ -2,15 +2,13 @@
 
 import { ChangeEventHandler, FormEventHandler, useRef, useState } from 'react';
 import style from './postForm.module.css';
-import Image from 'next/image';
-import ECOM from '/public/images/trunks.png';
 
 export default function PostForm() {
   const imageRef = useRef<HTMLInputElement>(null);
   const [content, setContent] = useState('');
   const me = {
     id: 'evan',
-    image: ECOM,
+    image: '/trunks.png',
   };
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
@@ -33,7 +31,7 @@ export default function PostForm() {
     <form className={style.postForm} onSubmit={onSubmit}>
       <div className={style.postUserSection}>
         <div className={style.postUserImage}>
-          <Image src={me.image} alt={me.id} />
+          <img src={me.image} alt={me.id} />
         </div>
       </div>
       <div className={style.postInputSection}>

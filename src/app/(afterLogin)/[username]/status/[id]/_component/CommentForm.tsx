@@ -2,8 +2,6 @@
 
 import { useRef, useState } from 'react';
 import style from './commentForm.module.css';
-import ECOM from '/public/images/ecom.png';
-import Image from 'next/image';
 
 export default function CommentForm() {
   const [content, setContent] = useState('');
@@ -13,14 +11,14 @@ export default function CommentForm() {
   const onChange = () => {};
   const me = {
     id: 'evan',
-    image: ECOM,
+    image: '/ecom.png',
   };
 
   return (
     <form className={style.postForm} onSubmit={onSubmit}>
       <div className={style.postUserSection}>
         <div className={style.postUserImage}>
-          <Image src={me.image} alt={me.id} />
+          <img src={me.image} alt={me.id} />
         </div>
       </div>
       <div className={style.postInputSection}>
