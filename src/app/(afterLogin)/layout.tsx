@@ -9,6 +9,7 @@ import { ReactNode } from 'react';
 import RightSearchZone from './_component/RightSearchZone';
 import ECOM from '/public/ecom.png';
 import { auth } from '@/auth';
+import RQProvider from './_component/RQProvider';
 
 type Props = { children: ReactNode; modal: ReactNode };
 export default async function AfterLoginLayout({ children, modal }: Props) {
@@ -50,25 +51,27 @@ export default async function AfterLoginLayout({ children, modal }: Props) {
           </div>
         </section>
       </header>
-      {/* 왼쪽을 제외한 오른쪽 전체 영역 */}
-      <div className={style.rightSectionWrapper}>
-        <div className={style.rightSectionInner}>
-          {/* 컨텐츠 영역 */}
-          <main className={style.main}>{children}</main>
-          {/* 추천 영역 */}
-          <section className={style.rightSection}>
-            <RightSearchZone />
-            <TrendSection />
-            <div className={style.followRecommend}>
-              <h3>팔로우 추천</h3>
-              <FollowRecommend />
-              <FollowRecommend />
-              <FollowRecommend />
-            </div>
-          </section>
+      <RQProvider>
+        {/* 왼쪽을 제외한 오른쪽 전체 영역 */}
+        <div className={style.rightSectionWrapper}>
+          <div className={style.rightSectionInner}>
+            {/* 컨텐츠 영역 */}
+            <main className={style.main}>{children}</main>
+            {/* 추천 영역 */}
+            <section className={style.rightSection}>
+              <RightSearchZone />
+              <TrendSection />
+              <div className={style.followRecommend}>
+                <h3>팔로우 추천</h3>
+                <FollowRecommend />
+                <FollowRecommend />
+                <FollowRecommend />
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-      {modal}
+        {modal}
+      </RQProvider>
     </div>
   );
 }

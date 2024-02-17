@@ -7,32 +7,24 @@ import ActionButtons from './ActionButtons';
 import PostArticle from './PostArticle';
 import { faker } from '@faker-js/faker';
 import PostImages from './PostImages';
+import { Post } from '@/model/Post';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
 type Props = {
   noImage?: boolean;
+  post: Post;
 };
-export default function Post({ noImage }: Props) {
-  const target = {
-    postId: 1,
-    User: {
-      id: 'faker',
-      nickname: 'Faker(이상혁)',
-      image: '/faker.png',
-    },
-    content: '첫번째 우승은 저 자신을 위한 것이었다면, 두번째 우승은 저희 팀을 위한 것입니다',
-    createdAt: new Date(),
-    Images: [] as any,
-  };
+export default function Post({ noImage, post }: Props) {
+  const target = post;
 
   if (Math.random() > 0.5 && !noImage) {
     target.Images.push(
       { imageId: 1, link: faker.image.urlLoremFlickr() },
       { imageId: 2, link: faker.image.urlLoremFlickr() },
       { imageId: 3, link: faker.image.urlLoremFlickr() },
-      // { imageId: 4, link: faker.image.urlLoremFlickr() },
+      { imageId: 4, link: faker.image.urlLoremFlickr() },
     );
   }
 
