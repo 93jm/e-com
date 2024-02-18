@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function middleware() {
   //현재 세션이 있는지 검사
+  // console.log('미들웨어 호출');
   const session = await auth();
   if (!session) {
     //없다면 login 페이지로 리다이렉트

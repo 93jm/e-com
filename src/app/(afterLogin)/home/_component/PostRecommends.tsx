@@ -13,7 +13,7 @@ export default function PostRecommends() {
     staleTime: 60 * 1000,
     //Inactive 상태일때에 gcTime이 동작한다 (기본으로 5분) 5분뒤에는 메모리에서 정리가 된다
     //gcTime은 항상 stateTime보다 시간이 길어야 한다
-    // gcTime:
+    gcTime: 300 * 1000,
   });
   return (
     <>
