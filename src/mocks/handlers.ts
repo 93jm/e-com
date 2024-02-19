@@ -32,12 +32,12 @@ const delay = (ms: number) =>
 const User = [
   {
     nickname: '에반' /** 에덴 << 으로 입력하면 cookie가 안쌓임 */,
-    id: 'Evan',
+    id: 'evan',
     image: '/ecom.png',
   },
   {
     nickname: '이상혁',
-    id: 'Faker',
+    id: 'faker',
     image: '/faker.png',
   },
 ];
