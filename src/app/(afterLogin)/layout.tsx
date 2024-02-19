@@ -4,14 +4,15 @@ import Link from 'next/link';
 import NavMenu from './_component/NavMenu';
 import LogoutButton from './_component/LogoutButton';
 import TrendSection from './_component/TrendSection';
-import FollowRecommend from './_component/FollowRecommend';
 import { ReactNode } from 'react';
 import RightSearchZone from './_component/RightSearchZone';
 import ECOM from '/public/ecom.png';
 import { auth } from '@/auth';
 import RQProvider from './_component/RQProvider';
+import FollowRecommendSection from './_component/FollowRecommendSection';
 
 type Props = { children: ReactNode; modal: ReactNode };
+
 export default async function AfterLoginLayout({ children, modal }: Props) {
   const session = await auth();
   return (
@@ -63,9 +64,7 @@ export default async function AfterLoginLayout({ children, modal }: Props) {
               <TrendSection />
               <div className={style.followRecommend}>
                 <h3>팔로우 추천</h3>
-                <FollowRecommend />
-                <FollowRecommend />
-                <FollowRecommend />
+                <FollowRecommendSection />
               </div>
             </section>
           </div>

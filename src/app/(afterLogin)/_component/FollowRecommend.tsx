@@ -1,28 +1,13 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
 import style from './followRecommend.module.css';
-import { useRouter } from 'next/navigation';
-import LoginModal from '@/app/(beforeLogin)/_component/LoginModal';
+import { User } from '@/model/User';
 
-export default function FollowRecommend() {
-  const router = useRouter();
-  const { data: me } = useSession();
-
-  const onFollow = () => {
-    if (!me) {
-      router.replace('/i/flow/login');
-      return <LoginModal />;
-    }
-
-    return;
-  };
-
-  const user = {
-    id: 'faker',
-    nickname: 'Faker(이상혁)',
-    image: '/faker.png',
-  };
+type Props = {
+  user: User;
+};
+export default function FollowRecommend({ user }: Props) {
+  const onFollow = () => {};
 
   return (
     <div className={style.container}>
