@@ -7,14 +7,18 @@ export default function Tab() {
   const [current, setCurrent] = useState('hot');
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const onClickHot = () => {
     setCurrent('hot');
-    router.replace(`/search?q=${searchParams.get('q')}`);
+    // 새로운 searchParams 객체를 만든다
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.delete('f');
+    router.replace(`/search?${newSearchParams.toString()}`);
   };
   const onClickNew = () => {
     setCurrent('new');
-    router.replace(`/search?${searchParams.toString()}&f=live`);
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('f', 'live');
+    router.replace(`/search?${newSearchParams.toString()}`);
   };
 
   return (
