@@ -1,6 +1,6 @@
 ## X.COM (twitter) 클론 코딩
 
-Nextjs App router 공부를 위해 강의 가이드를 따라 기본적인 UI 및 기능 클론 코딩 진행<br>
+Nextjs App router 공부를 위해 [강의 가이드](https://www.inflearn.com/course/next-react-query-sns%EC%84%9C%EB%B9%84%EC%8A%A4/dashboard)를 따라 기본적인 UI 및 기능 클론 코딩 진행<br>
 msw(mockServiceWorker)를 사용하여 가짜 api 구성하여 통신하며, 임의의 데이터는 faker-js를 사용함<br>
 
 ## 사용 스택
@@ -13,6 +13,7 @@ msw(mockServiceWorker)를 사용하여 가짜 api 구성하여 통신하며, 임
 - faker-js
 - msw
 - express
+  <br>
 
 ## 실행 방법
 
@@ -22,6 +23,8 @@ npm run next
 # msw run
 npm run mock
 ```
+
+<br>
 
 ## 배운 점
 
