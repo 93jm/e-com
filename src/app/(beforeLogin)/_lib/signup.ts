@@ -16,32 +16,30 @@ export const Signup = async (prevState: any, formData: FormData) => {
   if (!formData.get('image')) {
     return { message: 'no_image' };
   }
-
+  formData.set('nickname', formData.get('name') as string);
   let shouldRedirect = false;
-
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
       method: 'post',
       body: formData,
       credentials: 'include',
     });
-
     if (response.status === 403) {
       return { message: 'user_exists' };
     }
-
     shouldRedirect = true;
-
     await signIn('credentials', {
       username: formData.get('id'),
       password: formData.get('password'),
       redirect: false,
     });
   } catch (err) {
-    return;
+    console.error(err);
+    return { message: null };
   }
 
   if (shouldRedirect) {
-    redirect('/home');
+    redirect('/home'); // try/catch문 안에서 X
   }
+  return { message: null };
 };

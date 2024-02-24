@@ -15,7 +15,6 @@ export const {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log('credentials >> ', credentials);
         //로그인 수행할때에 아래 부분 호출
         const authResponse = await fetch(`${process.env.AUTH_URL}/api/login`, {
           method: 'POST',
@@ -33,7 +32,6 @@ export const {
         }
 
         const user = await authResponse.json();
-        console.log('user >> ', user);
         return {
           email: user.id,
           name: user.nickname,
