@@ -42,6 +42,11 @@ const User = [
     id: 'faker',
     image: '/faker.png',
   },
+  {
+    nickname: '우당탕탕',
+    id: 'chunsik',
+    image: '/chunsik.png',
+  },
 ];
 
 export const handlers = [
