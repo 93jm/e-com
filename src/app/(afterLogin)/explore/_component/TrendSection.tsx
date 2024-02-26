@@ -12,5 +12,6 @@ export default function TrendSection() {
     staleTime: 60 * 1000, // fresh -> stale, 5분이라는 기준
     gcTime: 300 * 1000,
   });
+  console.log('data >> ', data);
   return data?.map((trend) => <Trend trend={trend} key={trend.tagId} />);
 }
