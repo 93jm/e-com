@@ -7,7 +7,7 @@ import { Post as IPost } from '@/model/Post';
 import styles from '@/app/(afterLogin)/home/home.module.css';
 
 export default function FollowingPosts() {
-  const { data, isPending } = useSuspenseQuery<IPost[]>({
+  const { data, isPending } = useQuery<IPost[]>({
     queryKey: ['posts', 'followings'],
     queryFn: getFollowingPosts,
     staleTime: 60 * 1000,

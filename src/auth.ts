@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import KakaoProvider from 'next-auth/providers/kakao';
+import cookie from 'cookie';
+import { cookies } from 'next/headers';
 
 export const {
   handlers: { GET, POST } /** API 라우트 */,
@@ -26,6 +28,22 @@ export const {
             password: credentials.password,
           }),
         });
+
+        //백엔드 서버의 로그인 쿠키를 get 해옴
+        let setCookie = authResponse.headers.get('Set-Cookie');
+
+        if (setCookie) {
+          //서버로 받아온 쿠키를 객체화시킴
+          const parsed = cookie.parse(setCookie);
+          //next에서 제공하는 cookies로 브라우저에 쿠키를 심어줌
+          cookies().set('connect.sid', parsed['connect.sid'], parsed);
+
+          /**
+           * 프론트 서버에는 쿠키를 심으면 안된다
+           * 왜냐하면 프론트 서버는 서버이기 때문에 공용이다 여러 브라우저가 프론트 서버를 바라본다
+           * 그러기에 개인정보 유출 문제가 있을 수 있어서 브라우저에 쿠키를 심어야 한다
+           */
+        }
 
         if (!authResponse.ok) {
           return null;
