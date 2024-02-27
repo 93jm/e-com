@@ -7,6 +7,8 @@ export const getUserServer = async ({ queryKey }: { queryKey: [string, string] }
       tags: ['users', username],
     },
     credentials: 'include',
+    //브라우저에 쿠키를 넣으려면 headers통해 next(서버)에서 쿠키를 가져와 직접적으로 넣어야 한다. Prefetch를 위한 코드
+    //이 코드는 클라이언트 컴포넌트에서 사용할 수가 없다
     headers: { Cookie: cookies().toString() },
     cache: 'no-store',
   });

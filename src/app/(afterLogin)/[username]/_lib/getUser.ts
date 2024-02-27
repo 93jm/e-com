@@ -1,5 +1,6 @@
 import { QueryFunction } from '@tanstack/query-core';
 import { User } from '@/model/User';
+import { cookies } from 'next/headers';
 
 export const getUser: QueryFunction<User, [_1: string, _2: string]> = async ({ queryKey }) => {
   const [_1, username] = queryKey;
@@ -7,6 +8,7 @@ export const getUser: QueryFunction<User, [_1: string, _2: string]> = async ({ q
     next: {
       tags: ['users', username],
     },
+    credentials: 'include',
     cache: 'no-store',
   });
 
