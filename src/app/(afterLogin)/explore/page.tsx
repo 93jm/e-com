@@ -1,9 +1,14 @@
 import style from './explore.module.css';
 import SearchForm from '@/app/(afterLogin)/_component/SearchForm';
 import TrendSection from '../_component/TrendSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '탐색하기 / E',
+  description: '탐색하기',
+};
 
 export default function Home() {
-  console.log('here');
   return (
     <main className={style.main}>
       <div className={style.formZone}>

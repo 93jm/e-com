@@ -1,4 +1,4 @@
-import { PostImage } from './PostImage';
+import { PostImage } from '@/model/PostImage';
 import { User } from './User';
 
 interface UserID {
@@ -19,4 +19,6 @@ export interface Post {
     Reposts: number;
     Comments: number;
   };
+  Original?: Post; // 재게시
+  Parent?: Post; // 답글
 }

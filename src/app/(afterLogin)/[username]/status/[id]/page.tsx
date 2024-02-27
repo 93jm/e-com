@@ -7,10 +7,26 @@ import { getSinglePost } from '@/app/(afterLogin)/[username]/status/[id]/_lib/ge
 import { getComments } from '@/app/(afterLogin)/[username]/status/[id]/_lib/getComments';
 import React from 'react';
 import Comments from '@/app/(afterLogin)/[username]/status/[id]/_component/Comments';
+import { User } from '@/model/User';
+import { Post } from '@/model/Post';
+import { getSinglePostServer } from './_lib/getSinglePostServer';
+import { getUserServer } from '../../_lib/getUserServer';
+import { Metadata } from 'next';
 
 type Props = {
-  params: { id: string };
+  params: { id: string; username: string };
 };
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const user: User = await getUserServer({ queryKey: ['users', params.username] });
+  const post: Post = await getSinglePostServer({ queryKey: ['posts', params.id] });
+
+  return {
+    title: `E에서 ${user.nickname} 님 : ${post.content}`,
+    description: post.content,
+  };
+};
+
 export default async function Page({ params }: Props) {
   const { id } = params;
   const queryClient = new QueryClient();
