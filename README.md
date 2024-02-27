@@ -9,11 +9,12 @@ msw(mockServiceWorker)를 사용하여 가짜 api 구성하여 통신하며, sty
 - Next14 App router
 - css.module
 - classnames
-- next-auth
-- react-query
-- faker-js
-- msw
-- express
+- Next-Auth
+- React-Query
+- Faker-js
+- MSW
+- Express
+- ContextAPI + Zustand
   <br>
 
 ## 실행 방법
