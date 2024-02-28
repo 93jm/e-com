@@ -1,6 +1,6 @@
 type Props = { pageParam?: number };
 export async function getFollowingPosts({ pageParam }: Props) {
-  const res = await fetch(`http://localhost:9090/api/posts/followings?cursor=${pageParam}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts/followings?cursor=${pageParam}`, {
     //next에서 담당하는 서버쪽 캐싱
     next: {
       tags: ['posts', 'followings'],
