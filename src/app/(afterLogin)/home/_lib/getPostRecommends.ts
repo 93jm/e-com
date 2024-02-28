@@ -8,6 +8,7 @@ export async function getPostRecommends({ pageParam }: Props) {
 
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
+  console.log('??');
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

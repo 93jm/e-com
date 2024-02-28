@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import TabDecider from './TabDecider';
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import { getPostRecommends } from '../_lib/getPostRecommends';
+import { getFollowingPosts } from '../_lib/getFollowingPosts';
 
 export default async function TabDeciderSuspense() {
   const queryClient = new QueryClient();
@@ -11,6 +12,7 @@ export default async function TabDeciderSuspense() {
     queryFn: getPostRecommends,
     initialPageParam: 0,
   });
+
   //preFetch를 해서 서버 렌더링이 완료된 마크업(?)들을 dehydrate 시켜 클라이언트에 전달한다
   const dehydratedState = dehydrate(queryClient);
 
