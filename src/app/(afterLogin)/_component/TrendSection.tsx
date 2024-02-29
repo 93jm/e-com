@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
 import { getTrends } from '@/app/(afterLogin)/_lib/getTrends';
 import { Hashtag } from '@/model/Hashtag';
+import { Fragment } from 'react';
 
 export default function TrendSection() {
   const { data: session } = useSession();
@@ -26,7 +27,11 @@ export default function TrendSection() {
       <div className={style.trendBg}>
         <div className={style.trend}>
           <h3>나를 위한 트렌드</h3>
-          {data?.map((trend) => <Trend trend={trend} key={trend.tagId} />)}
+          {data?.map((trend, idx) => (
+            <Fragment key={idx}>
+              <Trend trend={trend} />
+            </Fragment>
+          ))}
         </div>
       </div>
     );
