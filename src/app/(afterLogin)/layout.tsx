@@ -1,4 +1,4 @@
-import style from '@/app/(afterLogin)/layout.module.css';
+import * as style from '@/app/(afterLogin)/layout.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavMenu from './_component/NavMenu';

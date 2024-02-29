@@ -1,13 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import style from '@/app/(beforeLogin)/_component/signup.module.css';
+import * as style from './signup.css';
 
 export default function BackButton() {
   const router = useRouter();
   const onClickClose = () => {
     router.back();
-    // TODO: 뒤로가기가 /home이 아니면 /home으로 보내기
   };
 
   return (
