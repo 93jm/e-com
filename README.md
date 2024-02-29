@@ -7,7 +7,7 @@ msw(mockServiceWorker)를 사용하여 가짜 api 구성하여 통신하며, sty
 
 - React 18
 - Next14 App router
-- css.module
+- css.module + vanila-extract
 - classnames
 - Next-Auth
 - React-Query
