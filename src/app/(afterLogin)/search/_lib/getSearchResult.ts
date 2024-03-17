@@ -8,7 +8,8 @@ export const getSearchResult: QueryFunction<
   const [_1, _2, searchParams] = queryKey;
   const urlSearchParams = new URLSearchParams(searchParams);
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts?${urlSearchParams.toString()}`, {
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts?${urlSearchParams.toString()}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search/${searchParams.q}`, {
     next: {
       tags: ['posts', 'search', searchParams.q],
     },
@@ -17,6 +18,7 @@ export const getSearchResult: QueryFunction<
   });
 
   if (!res.ok) {
+    console.log('error ?? ');
     throw new Error('Failed to fetch data');
   }
 

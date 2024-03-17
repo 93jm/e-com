@@ -16,13 +16,6 @@ export const modalBackground = style({
     '(prefers-color-scheme: dark)': {
       backgroundColor: 'rgba(91, 112, 131, 0.4)',
     },
-    '(min-width: 687px)': {
-      top: '5%',
-      minWidth: 600,
-      maxWidth: 600,
-      height: 550,
-      padding: 0,
-    },
   },
 });
 
@@ -34,6 +27,15 @@ export const modal = style({
   display: 'flex',
   flexDirection: 'column',
   padding: 32,
+  '@media': {
+    '(min-width: 687px)': {
+      top: '5%',
+      minWidth: 600,
+      maxWidth: 600,
+      height: 550,
+      padding: 0,
+    },
+  },
 });
 
 export const modalHeader = style({
